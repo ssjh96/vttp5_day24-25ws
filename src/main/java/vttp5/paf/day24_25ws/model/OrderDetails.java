@@ -2,7 +2,7 @@ package vttp5.paf.day24_25ws.model;
 
 public class OrderDetails {
     
-    private int id;
+    private int id; // Auto incr
 
     private String product;
 

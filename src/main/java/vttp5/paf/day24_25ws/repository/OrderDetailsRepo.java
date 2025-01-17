@@ -17,7 +17,9 @@ public class OrderDetailsRepo {
     private static final String INSERT_ORDER_DETAILS_SQL =
         """
             INSERT INTO order_details 
-                (product, unit_price, discount, quantity, order_id)        
+                (product, unit_price, discount, quantity, order_id)
+            VALUES
+                (?, ?, ?, ?, ?)        
         """;
 
     public int insertOrderDetails(int orderId, List<OrderDetails> lineItems)
