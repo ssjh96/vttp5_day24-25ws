@@ -1,34 +1,39 @@
 package vttp5.paf.day24_25ws.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import vttp5.paf.day24_25ws.model.Order;
 import vttp5.paf.day24_25ws.service.OrderService;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
-@RestController
-@RequestMapping("/api")
-public class OrderController 
-{
+
+@Controller
+@RequestMapping("web")
+public class OrderController {
+
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("/order")
-    public ResponseEntity<String> createOrder(@RequestBody Order order) {
-        Boolean isCreated = orderService.createOrder(order);
-        
-        if (!isCreated)
-        {
-            return ResponseEntity.status(500).body("Order creation failed..");
-        }
-    
-        return ResponseEntity.ok("Order created succesfully!");
+    // show order form
+    @GetMapping("/order")
+    public String showOrderForm() 
+    {
+        // model.addAttribute("order", new Order()); // provide empty order object for the form
+        return "orderform";
     }
-    
+        
 }
