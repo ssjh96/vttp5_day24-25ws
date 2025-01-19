@@ -57,6 +57,7 @@ public class OrderRestController
             order.setCustomerName(customerName);
             order.setShipAddress(shipAddress);
             order.setNotes(notes);
+            order.setTax(tax);
             
             // Parse line items
             List<OrderDetails> lineItems = new ArrayList<>();
