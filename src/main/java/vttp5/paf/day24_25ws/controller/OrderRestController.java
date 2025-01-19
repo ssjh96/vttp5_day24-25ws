@@ -63,7 +63,7 @@ public class OrderRestController
             List<OrderDetails> lineItems = new ArrayList<>();
             int i = 0;
 
-            while (formData.containsKey("lineItems[" + i + "],product"))
+            while (formData.containsKey("lineItems[" + i + "].product"))
             {
                 String product = formData.getFirst("lineItems[" + i + "].product");
                 Double unitPrice = Double.valueOf(formData.getFirst("lineItems[" + i + "].unitPrice"));
