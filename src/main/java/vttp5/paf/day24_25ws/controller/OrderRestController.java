@@ -30,7 +30,7 @@ public class OrderRestController
     @Autowired
     private OrderService orderService;
 
-    @PostMapping(path = "/order1", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping(path = "/order", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<String> createOrderMVM(@RequestBody MultiValueMap<String, String> formData) 
     {
         // formData must match names in html form, not the columns in mysql db, snake case names in DB are handled by repo
@@ -103,17 +103,17 @@ public class OrderRestController
 
     }
 
-    @PostMapping("/order2")
-    public ResponseEntity<String> createOrder(@RequestBody Order order) {
-        Boolean isCreated = orderService.createOrder(order);
+    // @PostMapping("/order2")
+    // public ResponseEntity<String> createOrder(@RequestBody Order order) {
+    //     Boolean isCreated = orderService.createOrder(order);
         
-        if (!isCreated)
-        {
-            return ResponseEntity.status(500).body("Order creation failed..");
-        }
+    //     if (!isCreated)
+    //     {
+    //         return ResponseEntity.status(500).body("Order creation failed..");
+    //     }
     
-        return ResponseEntity.ok("Order created succesfully!");
-    }
+    //     return ResponseEntity.ok("Order created succesfully!");
+    // }
 
    
     
