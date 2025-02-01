@@ -39,3 +39,7 @@ ALTER TABLE orders AUTO_INCREMENT = <next_value>;
 
 Replace <next_value> with the desired starting point (e.g., MAX(order_id) + 1).
 ALTER TABLE orders AUTO_INCREMENT = 8;
+
+mvn spring-boot:run -Dspring-boot.run.arguments="--name=customerA"
+mvn spring-boot:run -Dspring-boot.run.arguments="--name=customerB --server.port=8081"
+mvn spring-boot:run -Dspring-boot.run.arguments="--name=customerC --server.port=8082"

@@ -67,9 +67,16 @@
                 <input type="date" id="orderDate" class="form-control" name="orderDate" required/>
             </div>
 
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="customerName" class="form-label">Customer Name:</label>
                 <input type="text" id="title" class="form-control" name="customerName" required/>
+            </div> -->
+
+            <div class="mb-3">
+                <label for="customerName" class="form-label">Customer Name:</label>
+                <select id="customerName" name="customerName">
+                    <option th:each="name : ${registeredNames}" th:value="${name}" th:text="${name}"></option>
+                </select>
             </div>
 
             <div class="mb-3">
